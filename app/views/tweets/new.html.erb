@@ -1,0 +1,33 @@
+新規投稿画面
+<%= form_with model: @tweet, local: true do |f| %>
+  <div class="field">
+    <%= f.label :title, "タイトル" %><br />
+    <%= f.text_area :title, id:"title"%>
+  </div>
+
+  <div class="field">
+    <%= f.label :text, "投稿文" %><br />
+    <%= f.text_area :text, id:"text"%>
+  </div>
+
+  <div class="field">
+    <%= f.label :prefecture_id, "提供場所（都道府県）" %><br />
+    <%= f.text_area :prefecture_id, id:"prefecture"%>
+  </div>
+
+  <div class="field">
+    <%= f.label :city_id, "提供場所（市区町村）" %><br />
+    <%= f.text_area :city_id, id:"city"%>
+  </div>
+
+  <div class="field">
+    <%= f.label :image, "画像" %><br />
+    <%= f.file_field :image, id:"image"%>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "投稿" %>
+  </div>
+
+
+<% end %>
