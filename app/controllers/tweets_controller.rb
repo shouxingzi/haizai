@@ -1,6 +1,7 @@
 class TweetsController < ApplicationController
 
   def index
+    @tweets = Tweet.all
   end
 
   def new
@@ -15,6 +16,15 @@ class TweetsController < ApplicationController
       render action: :new
     end
   end
+
+  def show
+    @tweet = Tweet.find(params[:id])    
+  end
+
+  # def cities_select
+  #   cities = City.where(prefecture_id: params[:tweet][:prefecture_id])
+  #   render json: { post: cities }
+  # end
 
   private
   

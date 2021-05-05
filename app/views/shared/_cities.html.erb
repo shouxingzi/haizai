@@ -1,0 +1,5 @@
+<%= collection_select :city_id, :City.where(prefecture_id: prefecture_id), :id, :prefecture %>
+
+    <%# <%= f.collection_select :prefecture_id, Prefecture.all, :id, :prefecture, :prompt => "都道府県を選択" %> %>
+
+<%# = collection_select :company, :ms_city, MsCity.where(ms_pref_id: ms_pref_id), :id, :name %>
