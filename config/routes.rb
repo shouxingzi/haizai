@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   # post 'tweets', to: 'tweets#cities_select'
 
   resources :tweets, only: [:new, :create, :show, :edit, :update, :destroy] 
+  resources :users, only: :show
 end

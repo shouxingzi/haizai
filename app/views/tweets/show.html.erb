@@ -5,9 +5,16 @@
 <%= @tweet.city.city %>
 <%= image_tag @tweet.image %>
 
-<%= link_to "連絡をとる", root_path %>
-<%= link_to "編集する", edit_tweet_path(@tweet.id) %>
-<%= link_to "削除する", tweet_path(@tweet.id), method: :DELETE%>
-<%= link_to "ホーム", root_path %>
+
+
+<% if user_signed_in? && current_user.id == @tweet.user_id %>
+  <%= link_to "編集する", edit_tweet_path(@tweet.id) %>
+  <%= link_to "削除する", tweet_path(@tweet.id), method: :DELETE %>
+<% else %>
+  <%= link_to "出品者と連絡をとる", root_path %>
+  <%= link_to "ホーム", root_path %>
+<% end %>
+
+
 
 

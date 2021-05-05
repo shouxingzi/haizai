@@ -1,3 +1,6 @@
 <%= link_to tweet.title, tweet_path(tweet.id) %>
 <%= link_to tweet.text, tweet_path(tweet.id) %>
+<%= link_to tweet.prefecture.prefecture,"#" %>
+<%= link_to tweet.city.city,"#" %>
 <%= link_to image_tag(tweet.image) %>
+
