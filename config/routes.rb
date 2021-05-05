@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   root to: 'tweets#index'
   # post 'tweets', to: 'tweets#cities_select'
 
-  resources :tweets, only: [:new, :create, :show] 
+  resources :tweets, only: [:new, :create, :show, :edit, :update, :destroy] 
 end

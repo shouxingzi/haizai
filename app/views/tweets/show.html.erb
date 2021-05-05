@@ -1,7 +1,13 @@
 投稿内容詳細画面
 <%= @tweet.title %>
 <%= @tweet.text %>
+<%= @tweet.prefecture.prefecture%>
+<%= @tweet.city.city %>
 <%= image_tag @tweet.image %>
 
+<%= link_to "連絡をとる", root_path %>
+<%= link_to "編集する", edit_tweet_path(@tweet.id) %>
+<%= link_to "削除する", tweet_path(@tweet.id), method: :DELETE%>
+<%= link_to "ホーム", root_path %>
 
 
