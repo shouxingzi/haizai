@@ -1,9 +1,19 @@
 投稿内容詳細画面
-<%= @tweet.title %>
-<%= @tweet.text %>
-<%= @tweet.prefecture.prefecture%>
-<%= @tweet.city.city %>
+<div>
+タイトル：<%= @tweet.title %>
+</div>
+<div>
+投稿内容：<%= @tweet.text %>
+</div>
+<div>
+引き渡し場所（都道府県）：<%= @tweet.prefecture.prefecture%>
+</div>
+<div>
+引き渡し場所（市区町村）：<%= @tweet.city.city %>
+</div>
+<div>
 <%= image_tag @tweet.image %>
+</div>
 
 
 
@@ -11,8 +21,14 @@
   <%= link_to "編集する", edit_tweet_path(@tweet.id) %>
   <%= link_to "削除する", tweet_path(@tweet.id), method: :DELETE %>
 <% else %>
-  <%= link_to "出品者と連絡をとる", root_path %>
-  <%= link_to "ホーム", root_path %>
+  <%= form_with url: tweet_rooms_path(@tweet.id), local:true do |f| %>
+    <input name="room_name"  type="hidden" value=<%= @tweet.title %>>
+    <input name="tweet_user_id" type="hidden" value=<%= @tweet.id %>>
+    <input name="current_user_id" type="hidden" value=<%= current_user.id %>>
+    <input name="user_ids[]" type="hidden" value=<%= current_user.id %>>
+    <input name="user_ids[]" type="hidden" value=<%= @tweet.user_id %>>
+    <%= f.submit "出品者と連絡をとる" %>
+  <% end %>
 <% end %>
 
 

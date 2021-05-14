@@ -3,6 +3,7 @@ class Tweet < ApplicationRecord
   belongs_to :prefecture
   belongs_to :city
   has_one_attached :image
+  has_many :rooms
 
   with_options presence: true do
     validates :title

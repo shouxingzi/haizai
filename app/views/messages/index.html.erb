@@ -1,0 +1,21 @@
+message index
+
+
+<div>
+送信先：<%= @tweet.user.username%> さん
+案件名：<%= @tweet.title %>
+</div>
+
+
+
+<%= render partial: '/shared/message', collection: @messages %>
+
+
+<%= form_with model: @message, url: tweet_room_messages_path(@room.tweet_id, @room.id), local:true do |f| %>
+  <%= f.text_field :content %>
+  <%= f.submit "送信" %>
+<% end %>
+
+<%= link_to "このトークルームを削除する", tweet_room_path(@tweet.id, @room.id), method: :delete %>)
+
+
