@@ -15,11 +15,9 @@
     <%= f.collection_select :prefecture_id, Prefecture.all, :id, :prefecture, :prompt => "都道府県を選択" %>
   </div>
 
-  <div class="field">
-    <%= f.label :city_id, "提供場所（市町村)" %>
-    <div id="city_select">
-      <%= f.text_area :city_id, id:"text"%>
-    </div>
+  <div class="field" id="city-area">
+    <%= f.label :city_id, "提供場所（市区町村)" %> 
+    <%= f.collection_select :city_id, City.where(prefecture_id: 0), :id, :city, :prompt => "市区町村を選択" %>
   </div>
 
   <div class="field">

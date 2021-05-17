@@ -10,6 +10,7 @@ class TweetsController < ApplicationController
 
   def create
     @tweet = Tweet.new(tweet_params)
+    binding.pry
     if @tweet.save
       redirect_to root_path
     else
@@ -40,10 +41,17 @@ class TweetsController < ApplicationController
     redirect_to root_path
   end
 
-  # def cities_select
-  #   cities = City.where(prefecture_id: params[:tweet][:prefecture_id])
-  #   render json: { post: cities }
-  # end
+  def get_cities
+    render partial: '/shared/select_city', locals: {prefecture_id: params[:prefecture_id]}
+  end
+
+
+  def get_cities
+    @cities = City.where(prefecture_id: params[:prefecture_id])
+    respond_to do |format|
+      format.json { render json: @cities }
+    end
+  end
 
   private
   
