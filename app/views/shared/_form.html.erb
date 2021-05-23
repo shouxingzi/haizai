@@ -1,0 +1,45 @@
+<%= form_with model: form, id: "form", local: true do |f| %>
+  <div class="field">
+    <%= f.label :title, "タイトル" %><br />
+    <%= f.text_area :title, id:"title"%>
+  </div>
+
+  <div class="field">
+    <%= f.label :text, "投稿文" %><br />
+    <%= f.text_area :text, id:"text"%>
+  </div>
+
+
+    <div class="field">
+    <%= f.label :prefecture_id, "提供場所（都道府県)" %>
+    <%= f.collection_select :prefecture_id, Prefecture.all, :id, :prefecture, {include_blank: "都道府県を選択して下さい"}, {id: "prefecture-id"} %>
+  </div>
+
+  <div class="field">
+    <%= f.label :city_id, "提供場所（市区町村)" %> 
+    <%= f.collection_select :city_id, City.all, :id, :city, {include_blank: "市区町村を選択してください"}, {id: "city-id"}%>
+  </div>
+
+  <div class="tag-field", id='tag-field'>
+    <%= f.label :name, "タグ" %>
+    <%= f.text_field :name, class:"input-tag" %>
+  </div>
+  
+  <div id="search-result">
+  </div>
+
+  <div class="field">
+    <%= f.label :image, "画像" %><br />
+    <%= f.file_field :image, id:"image"%>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "投稿" %>
+  </div>
+
+  <div id="image-list">
+  </div>
+
+<% end %>
+
+<%= image_tag form.image, id: 'image' if form.image.present? %> 

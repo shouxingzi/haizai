@@ -4,6 +4,9 @@ class Tweet < ApplicationRecord
   belongs_to :city
   has_one_attached :image
   has_many :rooms
+  has_many :tweet_tag_relations, dependent: :destroy
+  has_many :tags, through: :tweet_tag_relations
+
 
   with_options presence: true do
     validates :title

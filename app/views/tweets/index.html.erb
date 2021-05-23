@@ -2,5 +2,10 @@
 <%= link_to "新規投稿", new_tweet_path %>
 
 <div>
-<%= render partial: "shared/tweet", collection: @tweets %>
+<%= render partial: "/shared/search_form", locals: { search: @search } %>
 </div>
+
+<div>
+<%= render partial: "/shared/tweet", collection: @tweets %>
+</div>
+

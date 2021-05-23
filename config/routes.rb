@@ -4,6 +4,12 @@ Rails.application.routes.draw do
   resources :tweets, only: [:new, :create, :show, :edit, :update, :destroy] do
     collection do
       get 'get_cities' 
+      get 'ajax_tag_search'
+      post 'tag_search'
+      get 'search'
+    end
+    member do
+      get 'tag_list'
     end
     resources :rooms, only: [:new, :create, :destroy] do
       resources :messages, only: [:index, :create]

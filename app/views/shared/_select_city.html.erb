@@ -1,6 +1,0 @@
-    <%# <%= f.label :city_id, "提供場所（都道府県)" %> %>
-    <%# <%= f.collection_select :city_id, City.where(prefecture_id: 0), :id, :city, :prompt => "市町村を選択" %> %>
-
-    <%= f.label :city_id, "提供場所（都道府県)" %>
-    <%= f.collection_select :city_id, City.where(prefecture_id: prefecture_id), :id, :city, :prompt => "市町村を選択" %>
-    
