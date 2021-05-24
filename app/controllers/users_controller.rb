@@ -6,4 +6,5 @@ class UsersController < ApplicationController
     @rooms = user.rooms
   end
 
+
 end

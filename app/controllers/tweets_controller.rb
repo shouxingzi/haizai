@@ -11,14 +11,25 @@ class TweetsController < ApplicationController
     render :index
   end
 
-  def tag_search
-    redirect_to root_path if params[:keyword] == ""
-    tag_ids = Tag.where('name LIKE(?)', "%#{params[:keyword]}%").pluck(:id)
-    tweet_ids = TweetTagRelation.where(tag_id: tag_ids)
-    @tweets = Tweet.where(id: tweet_ids)
-
+  def prefecture_list
+    @tweets = Tweet.where(prefecture_id: params[:id])
     render :index
   end
+
+  def city_list
+    @tweets = Tweet.where(city_id: params[:id])
+    render :index
+  end
+
+
+  # def tag_search
+  #   redirect_to root_path if params[:keyword] == ""
+  #   tag_ids = Tag.where('name LIKE(?)', "%#{params[:keyword]}%").pluck(:id)
+  #   tweet_ids = TweetTagRelation.where(tag_id: tag_ids)
+  #   @tweets = Tweet.where(id: tweet_ids)
+
+  #   render :index
+  # end
 
   def search
     @search = TweetSearch.new(search_params)

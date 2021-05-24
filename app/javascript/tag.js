@@ -1,6 +1,6 @@
 $(function () {
-  $('#tweet_name').on('keyup', function () {
-    var keyword = $('#tweet_name').val();
+  $('#tag-name').on('keyup', function () {
+    var keyword = $('#tag-name').val();
     const comma = keyword.lastIndexOf(',');
     keyword = keyword.substring(comma + 1);
     $.ajax({
@@ -23,7 +23,7 @@ $(function () {
           $searchResult.append($childElement);
           $clickElement = $('#tag.id');
           $clickElement.on('click', function() {  
-            $('#tweet_name').value = $clickElement.textContent;
+            $('#tag_name').value = $clickElement.textContent;
             $clickElement.remove();
           });
         });

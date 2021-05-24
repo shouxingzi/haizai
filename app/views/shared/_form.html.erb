@@ -22,7 +22,7 @@
 
   <div class="tag-field", id='tag-field'>
     <%= f.label :name, "タグ" %>
-    <%= f.text_field :name, class:"input-tag" %>
+    <%= f.text_field :name, {class: "input-tag", id: "tag-name"} %>
   </div>
   
   <div id="search-result">
@@ -30,7 +30,7 @@
 
   <div class="field">
     <%= f.label :image, "画像" %><br />
-    <%= f.file_field :image, id:"image"%>
+    <%= f.file_field :image %>
   </div>
 
   <div class="actions">

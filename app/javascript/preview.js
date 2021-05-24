@@ -1,15 +1,15 @@
 $(function () {
-  if ( $('#image') ){
-    $imageList = $('#image-list');
+  if ( $('#tweet_image') ){
+    $ImageList = $('#image-list');
     const createImageHTML = (blob) => {
       $imageElement = $("<div>");
-      $blobImage = $("<image>");
+      $blobImage = $("<img>");
       $blobImage.attr("src", blob);
       $imageElement.append($blobImage);
-      $imageList.append($imageElement);
+      $ImageList.append($imageElement);
     };
 
-    $image = $('#image');
+    $image = $('#tweet_image');
     $image.on('change', function (e) {
       $imageContent = $('img');
       if ($imageContent) {

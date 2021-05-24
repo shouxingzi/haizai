@@ -12,6 +12,12 @@
 引き渡し場所（市区町村）：<%= @tweet.city.city %>
 </div>
 <div>
+投稿者：<%= @tweet.user.username %>
+</div>
+<div>
+投稿日：<%= @tweet.created_at.strftime('%Y/%m/%d') %>
+</div>
+<div>
 <%= image_tag @tweet.image %>
 </div>
 
