@@ -5,7 +5,6 @@ Rails.application.routes.draw do
     collection do
       get 'get_cities' 
       get 'ajax_tag_search'
-      # post 'tag_search'
       get 'search'
     end
     member do
@@ -17,5 +16,11 @@ Rails.application.routes.draw do
       resources :messages, only: [:index, :create]
     end
   end
-  resources :users, only: :show
+  resources :users, only: :show  do
+    member do
+      get 'user_tweet_list'
+    end
+  end
+    
+
 end

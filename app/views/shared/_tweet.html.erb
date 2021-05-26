@@ -2,9 +2,10 @@
 <%= link_to tweet.text, tweet_path(tweet.id) %>
 <%= link_to tweet.prefecture.prefecture, prefecture_list_tweet_path(tweet.prefecture_id) %>
 <%= link_to tweet.city.city, city_list_tweet_path(tweet.city_id) %>
+投稿日<%= tweet.created_at.strftime('%Y/%m/%d') %>
 <%tweet.tags.each do |tag| %>
   #<%= link_to tag.name, tag_list_tweet_path(tag.id) %>
 <%end%>
-<%= link_to image_tag(tweet.image),tweet_path(tweet.id) %>
 投稿者：<%= tweet.user.username %>
+<%= link_to image_tag(tweet.image),tweet_path(tweet.id) %>
 

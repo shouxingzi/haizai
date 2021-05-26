@@ -1,8 +1,13 @@
 class MessagesController < ApplicationController
+  before_action :authenticate_user!
 
   def index
     @message = Message.new
     @room = Room.find(params[:room_id])
+    user_ids =  @room.room_users.includes(:user).pluck(:user_id)
+    users = User.where(id: user_ids)
+    destination = users.select {|n| n[:id] != current_user.id}
+    @destination = destination[0][:username]
     @tweet = Tweet.find(params[:tweet_id])
     @messages = @room.messages.includes(:user)
   end  

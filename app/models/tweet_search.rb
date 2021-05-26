@@ -11,7 +11,7 @@ class TweetSearch
     rel = rel.where(city_id: city_id) if city_id.present?
 
     if name.present?
-      tags = name.split(',')
+      tags = name.split(/[[:blank:]]+/)
       tag_ids = []
       tags.each do |tag|
         tag_id = Tag.where('name LIKE(?)', "%#{tag}%").pluck(:id)
@@ -21,7 +21,25 @@ class TweetSearch
       tweet_ids = TweetTagRelation.where(tag_id: tag_ids).pluck(:tweet_id)
       rel = rel.where(id: tweet_ids)
     end
-
     rel
+  end
+
+  def title
+    title = []
+    if prefecture_id.present?
+      prefecture = Prefecture.find(prefecture_id).prefecture
+      title << prefecture
+    end
+
+    if city_id.present?
+      city = City.find(city_id).city
+      title << city
+    end
+
+    if name.present?
+      title << name
+    end
+
+    title = "#{title}の検索結果"
   end
 end

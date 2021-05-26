@@ -2,3 +2,23 @@ ja:
   time:
     formats:
       default: "%Y/%m/%d %H:%M:%S"
+
+
+ja:
+  activerecord:
+    attributes:
+      user:
+        username: ユーザー名
+      
+      
+      
+  activemodel:
+    attributes:
+      tweets_tag:
+        title: タイトル
+        text: 投稿文
+        image: 画像
+        prefecture_id: 都道府県 
+        city_id: 市区町村
+
+

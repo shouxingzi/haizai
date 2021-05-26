@@ -12,7 +12,7 @@
 引き渡し場所（市区町村）：<%= @tweet.city.city %>
 </div>
 <div>
-投稿者：<%= @tweet.user.username %>
+投稿者：<%= link_to @tweet.user.username,  user_tweet_list_user_path(@tweet.user_id) %>
 </div>
 <div>
 投稿日：<%= @tweet.created_at.strftime('%Y/%m/%d') %>
@@ -22,20 +22,22 @@
 </div>
 
 
-
-<% if user_signed_in? && current_user.id == @tweet.user_id %>
-  <%= link_to "編集する", edit_tweet_path(@tweet.id) %>
-  <%= link_to "削除する", tweet_path(@tweet.id), method: :DELETE %>
-<% else %>
-  <%= form_with url: tweet_rooms_path(@tweet.id), local:true do |f| %>
-    <input name="room_name"  type="hidden" value=<%= @tweet.title %>>
-    <input name="tweet_user_id" type="hidden" value=<%= @tweet.id %>>
-    <input name="current_user_id" type="hidden" value=<%= current_user.id %>>
-    <input name="user_ids[]" type="hidden" value=<%= current_user.id %>>
-    <input name="user_ids[]" type="hidden" value=<%= @tweet.user_id %>>
-    <%= f.submit "出品者と連絡をとる" %>
+<% if user_signed_in? %>
+  <% if current_user.id == @tweet.user_id %>
+    <%= link_to "編集する", edit_tweet_path(@tweet.id) %>
+    <%= link_to "削除する", tweet_path(@tweet.id), method: :DELETE, data: { confirm: 'この投稿を削除しても良いですか?' }, class: "#" %>
+  <% else %>
+    <%= form_with url: tweet_rooms_path(@tweet.id), local:true do |f| %>
+      <input name="room_name"  type="hidden" value=<%= @tweet.title %>>
+      <input name="tweet_user_id" type="hidden" value=<%= @tweet.id %>>
+      <input name="current_user_id" type="hidden" value=<%= current_user.id %>>
+      <input name="user_ids[]" type="hidden" value=<%= current_user.id %>>
+      <input name="user_ids[]" type="hidden" value=<%= @tweet.user_id %>>
+      <%= f.submit "出品者と連絡をとる" %>
+    <% end %>
   <% end %>
 <% end %>
+
 
 
 

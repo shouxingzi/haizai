@@ -4,7 +4,5 @@ class Room < ApplicationRecord
   has_many :messages, dependent: :destroy
   belongs_to :tweet
   
-  with_options presence: true do
-    validates :room_name
-  end
+  validates :room_name, presence: true
 end

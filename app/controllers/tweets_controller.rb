@@ -1,39 +1,41 @@
 class TweetsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
   
   def index
     @tweets = Tweet.all
     @search = TweetSearch.new
+    @list_title = "最新の投稿一覧"
   end
 
   def tag_list
+    tag = Tag.find(params[:id]).name
+    @list_title = "##{tag} の検索結果"
     tweet_ids = TweetTagRelation.where(tag_id: params[:id]).pluck(:tweet_id)
     @tweets = Tweet.where(id: tweet_ids)
+    @search = TweetSearch.new
     render :index
   end
 
   def prefecture_list
-    @tweets = Tweet.where(prefecture_id: params[:id])
+    prefecture = Prefecture.find(params[:id]).prefecture
+    @list_title = "'#{prefecture}' の検索結果"
+    @tweets = Tweet.where(prefecture_id: params[:id])   
+    @search = TweetSearch.new
     render :index
   end
 
   def city_list
+    city = City.find(params[:id]).city
+    @list_title = "'#{city}' の検索結果"
     @tweets = Tweet.where(city_id: params[:id])
+    @search = TweetSearch.new
     render :index
   end
-
-
-  # def tag_search
-  #   redirect_to root_path if params[:keyword] == ""
-  #   tag_ids = Tag.where('name LIKE(?)', "%#{params[:keyword]}%").pluck(:id)
-  #   tweet_ids = TweetTagRelation.where(tag_id: tag_ids)
-  #   @tweets = Tweet.where(id: tweet_ids)
-
-  #   render :index
-  # end
-
+  
   def search
     @search = TweetSearch.new(search_params)
     @tweets = @search.search
+    @list_title = @search.title
     render :index
   end
   
@@ -42,12 +44,11 @@ class TweetsController < ApplicationController
     @form = TweetsTag.new
   end
 
+  
   def create
     @form = TweetsTag.new(tweet_params)
-    if @form.valid?
-      tag_list = @form.name.split(',')
-      @form.save(tag_list)
-      return redirect_to root_path
+    if @form.save
+      redirect_to root_path
     else
       render "new"
     end
@@ -69,24 +70,26 @@ class TweetsController < ApplicationController
     @form = TweetsTag.new(tweet: @tweet)
   end
 
+
   def update
     @tweet = Tweet.find(params[:id])
     @form = TweetsTag.new(tweet_params, tweet: @tweet)
-    if @form.valid?
-      tag_list = params[:tweet][:name].split(",")
-      @form.save(tag_list)
-      return redirect_to root_path
+    if @form.save
+      redirect_to root_path
     else
       render "edit"
     end    
   end
 
+
   def destroy
     tweet = Tweet.find(params[:id])
-    tweet.destroy
-    redirect_to root_path
+    if tweet.destroy
+      redirect_to root_path
+    else
+      render :show
+    end
   end
-
 
   def get_cities
     @cities = City.where(prefecture_id: params[:prefecture_id])
@@ -99,11 +102,12 @@ class TweetsController < ApplicationController
   private
   
   def tweet_params
-    params.require(:tweet).permit(:title, :text, :prefecture_id, :city_id, :image, :name).merge(user_id: current_user.id)
+    params.require(:tweet).permit(:title, :text, :prefecture_id, :city_id, :name, :image).merge(user_id: current_user.id)
   end
 
   def search_params
     params.require(:tweet_search).permit(:prefecture_id, :city_id, :name)
   end
+
 
 end
