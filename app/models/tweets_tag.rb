@@ -67,8 +67,8 @@ class TweetsTag
 
   def name_valid
     tags = name.split(",")
-    if tags.length > 2
-      errors.add(:name, "タグは２つ以上登録できません")
+    if tags.length > 10
+      errors.add(:name, "タグの登録は10個までです")
     end
   end
   
