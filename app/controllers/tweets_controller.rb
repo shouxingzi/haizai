@@ -1,8 +1,8 @@
 class TweetsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show, :tag_list, :prefecture_list, :city_list, :search]
   
   def index
-    @tweets = Tweet.all
+    @tweets = Tweet.all.order(created_at: "DESC")
     @search = TweetSearch.new
     @list_title = "最新の投稿一覧"
   end
@@ -11,7 +11,7 @@ class TweetsController < ApplicationController
     tag = Tag.find(params[:id]).name
     @list_title = "##{tag} の検索結果"
     tweet_ids = TweetTagRelation.where(tag_id: params[:id]).pluck(:tweet_id)
-    @tweets = Tweet.where(id: tweet_ids)
+    @tweets = Tweet.where(id: tweet_ids).order(created_at: "DESC")
     @search = TweetSearch.new
     render :index
   end
@@ -19,7 +19,7 @@ class TweetsController < ApplicationController
   def prefecture_list
     prefecture = Prefecture.find(params[:id]).prefecture
     @list_title = "'#{prefecture}' の検索結果"
-    @tweets = Tweet.where(prefecture_id: params[:id])   
+    @tweets = Tweet.where(prefecture_id: params[:id]).order(created_at: "DESC")   
     @search = TweetSearch.new
     render :index
   end
@@ -27,14 +27,14 @@ class TweetsController < ApplicationController
   def city_list
     city = City.find(params[:id]).city
     @list_title = "'#{city}' の検索結果"
-    @tweets = Tweet.where(city_id: params[:id])
+    @tweets = Tweet.where(city_id: params[:id]).order(created_at: "DESC")
     @search = TweetSearch.new
     render :index
   end
   
   def search
     @search = TweetSearch.new(search_params)
-    @tweets = @search.search
+    @tweets = @search.search.order(created_at: "DESC")
     @list_title = @search.title
     render :index
   end

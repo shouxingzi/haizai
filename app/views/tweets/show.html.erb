@@ -1,26 +1,18 @@
 投稿内容詳細画面
 <div>
-タイトル：<%= @tweet.title %>
+  <div>
+    <%= @tweet.title %>
+  </div>
+  <div>
+    投稿No：<%= @tweet.id %>
+  </div>
+  <div>
+    <%= @tweet.text %>
+  </div>
+  <div>
+    <%= image_tag @tweet.image %>
+  </div>
 </div>
-<div>
-投稿内容：<%= @tweet.text %>
-</div>
-<div>
-引き渡し場所（都道府県）：<%= @tweet.prefecture.prefecture%>
-</div>
-<div>
-引き渡し場所（市区町村）：<%= @tweet.city.city %>
-</div>
-<div>
-投稿者：<%= link_to @tweet.user.username,  user_tweet_list_user_path(@tweet.user_id) %>
-</div>
-<div>
-投稿日：<%= @tweet.created_at.strftime('%Y/%m/%d') %>
-</div>
-<div>
-<%= image_tag @tweet.image %>
-</div>
-
 
 <% if user_signed_in? %>
   <% if current_user.id == @tweet.user_id %>
@@ -28,15 +20,51 @@
     <%= link_to "削除する", tweet_path(@tweet.id), method: :DELETE, data: { confirm: 'この投稿を削除しても良いですか?' }, class: "#" %>
   <% else %>
     <%= form_with url: tweet_rooms_path(@tweet.id), local:true do |f| %>
-      <input name="room_name"  type="hidden" value=<%= @tweet.title %>>
-      <input name="tweet_user_id" type="hidden" value=<%= @tweet.id %>>
+    　<input name="room_name"  type="hidden" value=<%= @tweet.title %>>
+      <input name="tweet_user_id" type="hidden" value=<%= @tweet.id %>> 
       <input name="current_user_id" type="hidden" value=<%= current_user.id %>>
       <input name="user_ids[]" type="hidden" value=<%= current_user.id %>>
       <input name="user_ids[]" type="hidden" value=<%= @tweet.user_id %>>
-      <%= f.submit "出品者と連絡をとる" %>
+      <%= f.submit "投稿者と連絡をとる" %> 
     <% end %>
   <% end %>
 <% end %>
+
+
+<table>
+	<tbody>
+		<tr>
+			<td>投稿No</td>
+			<td><%= @tweet.id %></td>
+		</tr>
+		<tr>
+			<td>投稿者</td>
+			<td><%= link_to @tweet.user.username,  user_tweet_list_user_path(@tweet.user_id) %></td>
+		</tr>
+		<tr>
+			<td>投稿日</td>
+			<td><%= @tweet.created_at.strftime('%Y/%m/%d') %></td>
+		</tr>
+		<tr>
+			<td>引き渡し場所</td>
+			<td>
+        <%= link_to @tweet.prefecture.prefecture, prefecture_list_tweet_path(@tweet.prefecture_id) %>
+        <%= link_to @tweet.city.city, city_list_tweet_path(@tweet.city_id) %>
+      </td>
+		</tr>
+		<tr>
+			<td>ハッシュタグ</td>
+			<td>
+        <%@tweet.tags.each do |tag| %>
+            #<%= link_to tag.name, tag_list_tweet_path(tag.id) %>
+        <%end%>
+      </td>
+		</tr>
+	</tbody>
+</table>
+
+
+
 
 
 

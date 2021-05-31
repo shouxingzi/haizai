@@ -9,7 +9,8 @@ class MessagesController < ApplicationController
     destination = users.select {|n| n[:id] != current_user.id}
     @destination = destination[0][:username]
     @tweet = Tweet.find(params[:tweet_id])
-    @messages = @room.messages.includes(:user)
+    @messages = @room.messages.includes(:user).order(created_at: "ASC")
+    render :layout => nil
   end  
 
   def create

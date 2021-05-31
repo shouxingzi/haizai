@@ -4,6 +4,7 @@ class TweetSearch
  
   attr_accessor :prefecture_id, :city_id, :name
  
+
   def search
     rel = Tweet
  
@@ -18,11 +19,13 @@ class TweetSearch
         tag_id = tag_id[0]
         tag_ids << tag_id      
       end
-      tweet_ids = TweetTagRelation.where(tag_id: tag_ids).pluck(:tweet_id)
+      relation_arry = TweetTagRelation.where(tag_id: tag_ids)
+      tweet_ids = relation_arry.group(:tweet_id).having("count(tweet_id) = #{tags.length}").pluck(:tweet_id)
       rel = rel.where(id: tweet_ids)
     end
     rel
   end
+
 
   def title
     title = []

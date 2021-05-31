@@ -6,13 +6,13 @@
   </div>
 
   <div class="field">
-    <%= f.label :city_id, "提供場所（市区町村)" %> 
+    <%= f.label :city_id, "（市区町村)" %> 
     <%= f.collection_select :city_id, City.all, :id, :city, {include_blank: "指定なし"}, {id: "city-id"}%>
   </div>
 
   <div class="tag-field", id='tag-field'>
     <%= f.label :name, "タグ" %>
-    <%= f.text_field :name, {class: "input-tag", id: "tag-name"} %>
+    <%= f.text_field :name, {class: "input-tag", id: "search-tag-name"} %>
   </div>
 
   <div id="search-result">
