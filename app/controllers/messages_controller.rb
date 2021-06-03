@@ -15,6 +15,7 @@ class MessagesController < ApplicationController
     destination = Destination.new
     @destination = destination.check_destination(@room, current_user.id)
     # render :layout => nil #ヘッダーを無効
+
   end  
 
   def create

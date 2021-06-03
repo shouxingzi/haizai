@@ -1,6 +1,7 @@
 class RoomsController < ApplicationController
   before_action :authenticate_user!
 
+
   def new
     room_ids = Room.where(tweet_id: params[:tweet_id]).pluck(:id)
     if room_ids.present?
