@@ -1,5 +1,18 @@
-<div>
-  <%= message.user.username %>  
-  <%= l message.created_at %>
-  <%= message.content %>
-</div>
+ <%if message.user.id == current_user.id %>
+  <div class="mycomment">
+    <%= message.user.username %>  
+    <%= message.created_at.strftime('%Y/%m/%d %H:%M') %>
+    <div>
+      <%= message.content %>
+    </div>
+  </div>
+  <%else%>
+    <div class="destination-comment">
+      <%= message.user.username %>  
+      <%= message.created_at.strftime('%Y/%m/%d %H:%M') %>
+      <div>
+        <%= message.content %>
+      </div>
+    </div>
+  <% end %>
+

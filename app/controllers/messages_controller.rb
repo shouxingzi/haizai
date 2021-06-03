@@ -4,12 +4,17 @@ class MessagesController < ApplicationController
   def index
     @message = Message.new
     @room = Room.find(params[:room_id])
-    user_ids =  @room.room_users.includes(:user).pluck(:user_id)
-    users = User.where(id: user_ids)
-    destination = users.select {|n| n[:id] != current_user.id}
-    @destination = destination[0][:username]
     @tweet = Tweet.find(params[:tweet_id])
-    @messages = @room.messages.includes(:user)
+
+    @messages = @room.messages.includes(:user).order(created_at: "ASC")
+    current_user_messages = @messages.where.not(user_id: current_user.id)
+    if current_user_messages.present?
+      current_user_messages.update(checked: true)
+    end
+
+    destination = Destination.new
+    @destination = destination.check_destination(@room, current_user.id)
+    # render :layout => nil #ヘッダーを無効
   end  
 
   def create

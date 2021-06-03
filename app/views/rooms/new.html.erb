@@ -1,0 +1,17 @@
+room new
+
+<div>
+  <div>No<%= @tweet.id %> </div>
+  <div>ルーム名：<%= @tweet.title %></div>
+  <div>送信先：<%= @tweet.user.username %> さん</div>
+</div>
+
+
+<%= form_with model: @message_form, url: tweet_rooms_path(@tweet.id), local: true do |f| %>
+  <input name="room_message[room_name]"  type="hidden" value=<%= @tweet.title%>>
+  <input name="room_message[tweet_id]"  type="hidden" value=<%= @tweet.id%>>
+  <input name="room_message[tweet_user_id]" type="hidden" value=<%= @tweet.user.id %>> 
+  <input name="room_message[current_user_id]" type="hidden" value=<%= current_user.id %>>
+  <%= f.text_field :content %>
+  <%= f.submit "送信" %>
+<% end %>

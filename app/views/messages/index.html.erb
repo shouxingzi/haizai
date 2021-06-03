@@ -1,10 +1,9 @@
 message index
 
-
 <div>
-  <div>送信先：<%= @destination %> さん</div>
-  <div>投稿No：<%= @tweet.id %> </div>
+  <div>No<%= @tweet.id %> </div>
   <div>ルーム名：<%= @tweet.title %></div>
+  <div>送信先：<%= @destination %> さん</div>
 </div>
 
 <%= render partial: '/shared/message', collection: @messages %>
@@ -14,5 +13,5 @@ message index
   <%= f.submit "送信" %>
 <% end %>
 
-<%= link_to 'このトークルームを削除する', tweet_room_path(@tweet.id, @room.id), method: :delete, data: { confirm: 'このトークルームを削除しても良いですか?' }, class: "#" %> 
+<%= button_to 'このトークルームを削除する', tweet_room_path(@tweet.id, @room.id), method: :delete, data: { confirm: 'このトークルームを削除しても良いですか?' }, class: "#" %> 
 

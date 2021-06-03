@@ -1,16 +1,7 @@
 class RoomsController < ApplicationController
   before_action :authenticate_user!
 
-  def index
-  end
-
   def new
-    @room = Room.new
-    @tweet = Tweet.find(params[:tweet_id])
-  end
-
-
-  def create
     room_ids = Room.where(tweet_id: params[:tweet_id]).pluck(:id)
     if room_ids.present?
       room_ids.each do |id|
@@ -18,19 +9,26 @@ class RoomsController < ApplicationController
         room_users = room.users
         room_user_ids = []
         room_users.each do |user|
-          room_user_ids << "#{user[:id]}"
+          room_user_ids << user[:id]
         end
-        if room_user_ids == params[:user_ids].sort
+        current_user_ids = [current_user.id, Tweet.find(params[:tweet_id]).user_id]
+        if room_user_ids.sort == current_user_ids.sort
           redirect_to tweet_room_messages_path(room.tweet_id, room.id) 
         end
       end
+    end
+    @message_form = RoomMessage.new
+    @tweet = Tweet.find(params[:tweet_id])
+  end
+
+
+
+  def create
+    @message_form = RoomMessage.new(message_form_params)
+    if room = @message_form.save
+      redirect_to tweet_room_messages_path(params[:tweet_id], room.room_id)
     else
-      room = Room.new(room_params)
-        if room.save
-          redirect_to "/tweets/#{room.tweet.id}/rooms/#{room.id}/messages"
-        else
-          render tenplate: "tweets/show"
-        end     
+      render :new
     end
   end
 
@@ -38,15 +36,14 @@ class RoomsController < ApplicationController
   def destroy
     room = Room.find(params[:id])
     if room.destroy
-      redirect_to tweet_path(params[:tweet_id])
-    else
-      redirect_to tweet_path(params[:tweet_id])
+      redirect_to "/users/#{current_user.id}"
     end
   end
 
+
   private
-  def room_params
-    params.permit(:room_name, :tweet_id, user_ids: [])
+  def message_form_params
+    params.require(:room_message).permit(:content, :room_name, :tweet_id, :tweet_user_id, :current_user_id)
   end
 
 end

@@ -1,9 +1,20 @@
-userのshow画面
+<h1>参加中のメッセージルーム</h1>
 
-投稿一覧
+<%= render partial: "shared/room", collection: @user_tweet_rooms %>
+
+
+<%# <%= render partial: "shared/room", collection: @no_user_tweet_rooms %>
+
+<%# <% if @user_tweet_rooms.present? %> %>
+  <%# <h2>あなたが投稿主となっているメッセージルーム</h2> %>
+  <%# <%= render partial: "shared/room", collection: @user_tweet_rooms %> %>
+<%# <% end %> %> %>
+
+
+
+<h1>投稿一覧</h1>
+提供が済んだ投稿は削除しましょう。
 <%= render partial: "shared/tweet", collection: @tweets %>
 
-参加しているチャット
-<%= render partial: "shared/room", collection: @rooms %>
 
 
