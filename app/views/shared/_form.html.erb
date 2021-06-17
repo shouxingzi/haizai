@@ -51,7 +51,7 @@
           ハッシュタグ
         </div>
         <p>タグとタグの間は半角カンマ「,」で区切ってください。１０個まで登録できます。</p>
-        <%= f.text_area :name, class: "p-tweet-form__tag-input", id: "form-tag-name" %>
+        <%= f.text_area :name, class: "p-tweet-form__tag-input", id: "form-tag-name", autocomplete: "off" %>
         <div id="tag-search-result"></div>
       </div>
       <%# タグ %>

@@ -13,7 +13,7 @@
 
   <div class="p-search-form__section", id='tag-field'>
     タグ
-    <%= f.text_field :name, {class: "p-search-form__tag-input", id: "search-tag-name"} %>
+    <%= f.text_field :name, class: "p-search-form__tag-input", id: "search-tag-name", autocomplete: "off" %>
   </div>
 
   <div class="p-search-form__search-result" id="search-result">
