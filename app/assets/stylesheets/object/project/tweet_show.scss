@@ -1,0 +1,92 @@
+.p-tweet-show__container {
+  border: 1px solid black;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 60vw;
+}
+
+.p-tweet-show__title-section {
+  font-size: 40px;
+  text-align: center;
+}
+
+.p-tweet-show__text-section {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.p-tweet-show__image-section {
+  text-align: center;
+}
+
+.p-tweet-show__btn {
+  padding: 15px 35%;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  text-decoration: none;
+  text-align: center;
+}
+
+.p-tweet-show__btn a {
+  color: #fff;
+}
+
+.p-tweet-show__edit-btn {
+  background: #ea352d;
+  border: 1px solid #ea352d;
+}
+
+.p-tweet-show__delete-btn {
+  background: #0000cd;
+  border: 1px solid #0000cd;
+}
+
+.p-tweet-show__message-btn {
+  background: #ea352d;
+  border: 1px solid #ea352d;
+}
+
+.p-show__table {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 50px;
+  width: 40vw;
+}
+
+.p-show__table th {
+  border:1px solid #000066;
+  background-color: #dcdcdc;
+}
+ 
+.p-show__table td {
+  border:1px solid #000066;
+}
+
+.p-show__table tr {
+  height: 40px;
+}
+
+.p-show__table  {
+  th {
+    width: 30%;
+    padding: 5px 10px;
+  }
+  td {
+    width: 70%;
+    padding: 5px 10px;
+  }
+} 
+
+
+
+
+
+
+
+
+
+

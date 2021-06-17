@@ -1,0 +1,24 @@
+.p-tweet-contents {
+  background-color: white;
+  display: flex;
+  margin-top: 50px;
+}
+
+
+.p-tweet-img-contents {
+  width: 40%;
+  height: 100%;
+}
+
+.p-tweet-article-contents {
+  width: 60%;
+  height: 100%;
+}
+
+.p-tweet-article-contents__item {
+  margin: 5px 0px;
+}
+
+.p-tweet-article-contents__title {
+  font-size: 25px;
+}

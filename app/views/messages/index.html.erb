@@ -1,17 +1,65 @@
-message index
+<div class="p-message-index-container">
 
-<div>
-  <div>No<%= @tweet.id %> </div>
-  <div>ルーム名：<%= @tweet.title %></div>
-  <div>送信先：<%= @destination %> さん</div>
+  <header class="p-message-index-header">
+    <div class="p-message-index-header__contents">
+      <%= link_to "マイメニュー", user_path(current_user.id) %>
+    </div>
+    <div class="p-message-index-header__contents">
+      <p class="p-message-index-header__roomname"><span class="p-message-index-header__tweet-no">投稿No<%= @tweet.id %></span> <%= @tweet.title %></p>
+    </div>
+    <div class="p-message-index-header__contents">
+      <ul>
+        <li><%= link_to image_tag('menu_icon'), class: "" %>
+          <ul>
+            <li><%= link_to "このトークルームを削除", tweet_room_path(@tweet.id, @room.id), method: :delete, data: { confirm: 'このトークルームを削除しても良いですか?' }, class: "#" %> </li>
+            <li><%= link_to "投稿の詳細", tweet_path(@tweet.id), target: :_blank, rel: "noopener noreferrer" %></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </header>
+
+  <div class="p-chats">
+
+    <% @messages.each do |message| %>
+      <%if message.user.id == current_user.id %>
+        <div class="mycomment">
+          <p><%= message.content %></p>
+        </div>
+        <div class="mycomment-time">
+          <%= message.created_at.strftime('%Y/%m/%d %H:%M') %>
+        </div>
+      <%else%>
+        <div class="fukidasi">
+          <div class="faceicon">
+            <%= message.user.username %>  
+          </div>
+          <div class="chatting">
+            <div class="says">
+              <p><%= message.content %></p>
+            </div>
+          </div>
+          <div class="time">
+            <%= message.created_at.strftime('%Y/%m/%d %H:%M') %>
+          </div>
+        </div>            
+      <% end %>
+    <% end %>
+
+    <a href="#jump-target" id="jump-trigger"></a>
+    <div id="jump-target"></div>
+    
+  </div>
+
+
+  <div class="p-message-index-form">
+    <%= form_with model: @message, url: tweet_room_messages_path(@room.tweet_id, @room.id), local:true do |f| %>
+        <%= f.text_area :content, class: "p-message-index-form__content-input" %>
+        <%= f.submit "送信", class: "p-message-index-form__send-btn", id: "message-index-form-send-btn" %>
+    <% end %>
+  </div>
+
 </div>
 
-<%= render partial: '/shared/message', collection: @messages %>
 
-<%= form_with model: @message, url: tweet_room_messages_path(@room.tweet_id, @room.id), local:true do |f| %>
-  <%= f.text_field :content %>
-  <%= f.submit "送信" %>
-<% end %>
-
-<%= button_to 'このトークルームを削除する', tweet_room_path(@tweet.id, @room.id), method: :delete, data: { confirm: 'このトークルームを削除しても良いですか?' }, class: "#" %> 
 

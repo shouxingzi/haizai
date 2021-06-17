@@ -1,0 +1,59 @@
+.p-new-message__table {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 70px;
+    margin-bottom: 70px;
+    width: 30vw;
+}
+
+.p-new-message__table th {
+  border:1px solid #000066;
+  background-color: #dcdcdc;
+}
+ 
+.p-new-message__table td {
+  border:1px solid #000066;
+}
+
+.p-new-message__table tr {
+  height: 40px;
+}
+
+.p-new-message__table  {
+  th {
+    width: 30%;
+    padding: 5px 10px;
+  }
+  td {
+    width: 70%;
+    padding: 5px 10px;
+  }
+} 
+
+.p-new-message__form {
+  margin-left: auto;
+  margin-right: auto;
+  width: 40vw;
+}
+
+.p-new-message__form {
+  margin-left: auto;
+  margin-right: auto;
+  width: 40vw;
+  text-align: center;
+}
+
+.p-new-message__message-input {
+  width: 40vw;
+  height: 300px;
+  padding: 5px;
+}
+
+
+.p-new-message__send-btn {
+  width: 20vw;
+  // height: 6vh;
+  margin: 10px;
+}
+
+

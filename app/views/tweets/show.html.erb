@@ -1,59 +1,65 @@
-投稿内容詳細画面
-<div>
-  <div>
+<%= render partial: "/shared/header" %>
+
+
+<div class="p-tweet-show__container">
+  <div class="p-tweet-show__title-section">
     <%= @tweet.title %>
   </div>
-  <div>
-    投稿No：<%= @tweet.id %>
-  </div>
-  <div>
+  <div class="p-tweet-show__text-section">
     <%= @tweet.text %>
   </div>
-  <div>
+  <div class="p-tweet-show__image-section">
     <%= image_tag @tweet.image %>
+  </div>
+
+  <div class="p-tweet-show__btn-section">
+    <% if user_signed_in? %>
+      <% if current_user.id == @tweet.user_id %>
+        <div class="p-tweet-show__btn p-tweet-show__edit-btn">
+          <%= link_to "編集する", edit_tweet_path(@tweet.id) %>
+        </div>
+        <div class="p-tweet-show__btn p-tweet-show__delete-btn">
+          <%= link_to "削除する", tweet_path(@tweet.id), method: :DELETE, data: { confirm: 'この投稿を削除しても良いですか?' } %>
+        </div>
+      <% else %>
+        <div class="p-tweet-show__btn p-tweet-show__message-btn">
+          <%= link_to "投稿者と連絡をとる", new_tweet_room_path(@tweet.id) %>
+        </div>
+      <% end %>
+    <% end %>
   </div>
 </div>
 
-<% if user_signed_in? %>
-  <% if current_user.id == @tweet.user_id %>
-    <%= link_to "編集する", edit_tweet_path(@tweet.id) %>
-    <%= link_to "削除する", tweet_path(@tweet.id), method: :DELETE, data: { confirm: 'この投稿を削除しても良いですか?' }, class: "#" %>
-  <% else %>
-    <%= link_to "投稿者と連絡をとる", new_tweet_room_path(@tweet.id) %>
-  <% end %>
-<% end %>
 
 
-<table>
-	<tbody>
+<table class="p-show__table">
 		<tr>
-			<td>投稿No</td>
+			<th>投稿No</th>
 			<td><%= @tweet.id %></td>
 		</tr>
 		<tr>
-			<td>投稿者</td>
-			<td><%= link_to @tweet.user.username,  user_tweet_list_user_path(@tweet.user_id) %></td>
+			<th>投稿者</th>
+			<td><%= link_to @tweet.user.username,  user_list_tweet_path(@tweet.user_id), class: "tweet-username" %></td>
 		</tr>
 		<tr>
-			<td>投稿日</td>
+			<th>投稿日</th>
 			<td><%= @tweet.created_at.strftime('%Y/%m/%d') %></td>
 		</tr>
 		<tr>
-			<td>引き渡し場所</td>
+			<th>引き渡し場所</th>
 			<td>
-        <%= link_to @tweet.prefecture.prefecture, prefecture_list_tweet_path(@tweet.prefecture_id) %>
-        <%= link_to @tweet.city.city, city_list_tweet_path(@tweet.city_id) %>
+        <%= link_to @tweet.prefecture.prefecture, prefecture_list_tweet_path(@tweet.prefecture_id), class: "place" %>
+        <%= link_to @tweet.city.city, city_list_tweet_path(@tweet.city_id), class: "place" %>
       </td>
 		</tr>
 		<tr>
-			<td>ハッシュタグ</td>
+			<th>ハッシュタグ</th>
 			<td>
         <%@tweet.tags.each do |tag| %>
-            #<%= link_to tag.name, tag_list_tweet_path(tag.id) %>
+            #<%= link_to "#{tag.name}", tag_list_tweet_path(tag.id), class: "tag" %>
         <%end%>
       </td>
 		</tr>
-	</tbody>
 </table>
 
 

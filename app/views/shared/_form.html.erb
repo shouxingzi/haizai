@@ -1,50 +1,104 @@
-<%= form_with model: form, id: "form", local: true do |f| %>
-  
-  <%= render 'shared/error_messages', model: f.object %>
+<div class="p-tweet-form__container">
+    
+    <%= form_with model: form, id: "form", local: true do |f| %>
+      
+      <div class="p-tweet-form__error-space">
+      <%= render 'shared/error_messages', model: f.object %>
+      </div>
 
-  <div class="field">
-    <%= f.label :title, "タイトル" %><br />
-    <%= f.text_area :title, id:"title"%>
-  </div>
+      <%# 投稿タイトル %>
+      <div class="p-tweet-form__section">
+        <div class="p-tweet-form__title">
+          タイトル
+          <span class="p-tweet-form__indispensable">必須</span>
+        </div>
+        <%= f.text_area :title, class: "p-tweet-form__title-input", id:"title"%>
+      </div>
+      <%# 投稿タイトル %>
 
-  <div class="field">
-    <%= f.label :text, "投稿文" %><br />
-    <%= f.text_area :text, id:"text"%>
-  </div>
-
-
-  <div class="field">
-    <div><%= f.label :prefecture_id, "提供場所（都道府県)" %></div>
-    <div><%= f.collection_select :prefecture_id, Prefecture.all, :id, :prefecture, {include_blank: "都道府県を選択して下さい"}, {id: "prefecture-id"} %></div>
-  </div>
-
-  <div class="field">
-    <div><%= f.label :city_id, "提供場所（市区町村)" %></div> 
-    <div><%= f.collection_select :city_id, City.all, :id, :city, {include_blank: "市区町村を選択してください"}, {id: "city-id"}%></div>
-  </div>
-
-  <div class="tag-field", id='tag-field'>
-    <div><%= f.label :name, "タグ" %></div>
-    タグとタグの間は半角カンマ「,」で区切ってください。１０個まで登録できます。
-    <div><%= f.text_field :name, {class: "input-tag", id: "form-tag-name"} %></div>
-  </div>
-  
-  <div id="search-result">
-  </div>
-
-  <div class="field">
-    <%= f.label :image, "画像" %><br />
-    <%= f.file_field :image %>
-  </div>
-
-  <div id="image-list">
-  </div>
-
-  <div class="actions">
-    <%= f.submit "送信" %>
-  </div>
+      <%# 投稿文 %>
+      <div class="p-tweet-form__section">
+        <div class="p-tweet-form__title">
+          投稿文
+          <span class="p-tweet-form__indispensable">必須</span>
+        </div>
+        <%= f.text_area :text, class: "p-tweet-form__text-input", id:"text"%>
+      </div>
+      <%# 投稿文%>
 
 
-<% end %>
+      <%# 提供場所 %>
+      <div class="p-tweet-form__section">
+        <div class="p-tweet-form__title">
+          提供場所（都道府県）
+          <span class="p-tweet-form__indispensable">必須</span>
+        </div>
+        <%= f.collection_select :prefecture_id, Prefecture.all, :id, :prefecture, {include_blank: "都道府県を選択して下さい"}, {class: "p-tweet-form__place-select", id: "prefecture-id"} %>
+      </div>
+
+      <div class="p-tweet-form__section">
+        <div class="p-tweet-form__title">
+          提供場所（市区町村）
+          <span class="p-tweet-form__indispensable">必須</span>
+        </div>
+        <%= f.collection_select :city_id, City.all, :id, :city, {include_blank: "市区町村を選択してください"}, {class: "p-tweet-form__place-select", id: "city-id"}%>
+      </div>
+      <%# 提供場所 %>
+
+      <%# タグ %>
+      <div class="p-tweet-form__section">
+        <div class="p-tweet-form__title">
+          ハッシュタグ
+        </div>
+        <p>タグとタグの間は半角カンマ「,」で区切ってください。１０個まで登録できます。</p>
+        <%= f.text_area :name, class: "p-tweet-form__tag-input", id: "form-tag-name" %>
+        <div id="tag-search-result"></div>
+      </div>
+      <%# タグ %>
+
+      <%# 投稿画像 %>
+      <div class="p-tweet-form__section">
+        <div class="p-tweet-form__title">
+          投稿画像
+          <span class="p-tweet-form__indispensable">必須</span>
+        </div>
+        <%= f.file_field :image %>
+        <div class="p-tweet-form__preview", id="image-list">
+        </div>
+      </div>
+      <%# 投稿画像 %>
+
+
+
+      <%# 下部ボタン %>
+      <div class="p-tweet-form__section">
+        <%= f.submit "送信" ,class: "p-tweet-form__send-btn" %>
+      </div>
+      <%# /下部ボタン %>
+      
+    <% end %>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

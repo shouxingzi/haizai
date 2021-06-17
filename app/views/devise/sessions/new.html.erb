@@ -1,19 +1,29 @@
-<h2>ユーザーログイン</h2>
+<%= render partial: "/shared/header" %>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email, "メールアドレス" %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+<div class="c-devise-form__container">
 
-  <div class="field">
-    <%= f.label :password, "パスワード" %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+  <h1>ユーザーログイン</h1>
 
-  <div class="actions">
-    <%= f.submit "ログイン" %>
-  </div>
-<% end %>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="c-devise-form__section">
+      <div class="c-devise-form__title">
+        <%= f.label :email, "メールアドレス" %><br />
+      </div>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
 
-<%= render "devise/shared/links" %>
+    <div class="c-devise-form__section">
+      <div class="c-devise-form__title">
+        <%= f.label :password, "パスワード" %><br />
+      </div>
+      <%= f.password_field :password, autocomplete: "current-password" %>
+    </div>
+
+    <div class="c-devise-form__section">
+      <%= f.submit "ログイン", class: "c-devise-form__btn" %>
+    </div>
+  <% end %>
+
+  <%# <%= render "devise/shared/links" %> 
+
+</div>

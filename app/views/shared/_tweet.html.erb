@@ -1,26 +1,30 @@
-<div>
-  <div>
-    <%= link_to image_tag(tweet.image),tweet_path(tweet.id) %>
+<div class="p-tweet-contents">
+  <div class="p-tweet-img-contents">
+    <%= link_to image_tag(tweet.image),tweet_path(tweet.id), class: "tweet-img"  %>
   </div>
-  <div>
-    <%= link_to tweet.title, tweet_path(tweet.id) %>
-  </div>
-  <div>
-    投稿No<%= tweet.id %>
-  </div>
-  <div>
-    投稿者：<%= tweet.user.username %>
-  </div>
-  <div>
-    投稿日<%= tweet.created_at.strftime('%Y/%m/%d') %>
-  </div>
-  <div>
-    <%= link_to tweet.prefecture.prefecture, prefecture_list_tweet_path(tweet.prefecture_id) %>
-    <%= link_to tweet.city.city, city_list_tweet_path(tweet.city_id) %>
-  </div>
-  <div>
-    <%tweet.tags.each do |tag| %>
-    #<%= link_to tag.name, tag_list_tweet_path(tag.id) %>
-    <%end%>
+  <div class="p-tweet-article-contents">
+    <div class="p-tweet-article-contents__item">
+      <%= link_to tweet.title, tweet_path(tweet.id), class: "c-title--black p-tweet-article-contents__title" %>
+    </div>
+    <div class="p-tweet-article-contents__item">
+      <p>投稿No: <%= tweet.id %></p>
+    </div>
+    <div class="p-tweet-article-contents__item"> 
+      投稿者: <%= link_to tweet.user.username,  user_list_tweet_path(tweet.user_id), class: "c-username--blue" %>
+    </div>
+    <div class="p-tweet-article-contents__item">
+      投稿日: <%= tweet.created_at.strftime('%Y/%m/%d') %>
+    </div>
+    <div class="p-tweet-article-contents__item">
+      提供場所: 
+      <%= link_to tweet.prefecture.prefecture, prefecture_list_tweet_path(tweet.prefecture_id), class: "c-place--blue" %>
+      <%= link_to tweet.city.city, city_list_tweet_path(tweet.city_id), class: "c-place--blue" %>
+    </div>
+    <div class="p-tweet-article-contents__item">
+      タグ: 
+      <%tweet.tags.each do |tag| %>
+        <%= link_to "##{tag.name}", tag_list_tweet_path(tag.id), class: "c-tag--blue" %>
+      <%end%>
+    </div>
   </div>
 </div>

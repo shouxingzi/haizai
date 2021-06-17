@@ -1,20 +1,20 @@
-<h1>参加中のメッセージルーム</h1>
+<div class="p-user-show-body-container">
 
-<%= render partial: "shared/room", collection: @user_tweet_rooms %>
+  <%= render partial: "/shared/header" %>
 
+  <section class="p-user-room-list">
+    <h1>参加中のメッセージルーム</h1>
+    <div class="p-user-room__container">
+      <%= render partial: "shared/room", collection: @user_tweet_rooms %>
+    </div>
+  </section>
 
-<%# <%= render partial: "shared/room", collection: @no_user_tweet_rooms %>
+  <section class="c-section p-section__tweets-list">
+    <h1 class=c-form-title><%= current_user.username %>さんの投稿一覧</h1>
+    <p class="p-user-room-tweet-list-caution">提供が済んだ投稿は削除しましょう。</p>
+    <%= render partial: "shared/tweet", collection: @tweets %>
+  </section>
 
-<%# <% if @user_tweet_rooms.present? %> %>
-  <%# <h2>あなたが投稿主となっているメッセージルーム</h2> %>
-  <%# <%= render partial: "shared/room", collection: @user_tweet_rooms %> %>
-<%# <% end %> %> %>
-
-
-
-<h1>投稿一覧</h1>
-提供が済んだ投稿は削除しましょう。
-<%= render partial: "shared/tweet", collection: @tweets %>
-
+</div>
 
 

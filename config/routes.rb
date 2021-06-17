@@ -11,16 +11,12 @@ Rails.application.routes.draw do
       get 'tag_list'
       get 'prefecture_list'
       get 'city_list'
+      get 'user_list'
     end
     resources :rooms, only: [:new, :create, :destroy] do
       resources :messages, only: [:index, :create]
     end
   end
-  resources :users, only: :show  do
-    member do
-      get 'user_tweet_list'
-    end
-  end
-    
+  resources :users, only: :show  
 
 end

@@ -1,22 +1,29 @@
-<%= form_with model: search, url: search_tweets_path, method: :get, local: true do |f| %>
+<div class="p-search-form__container">
+<%= form_with model: search, url: search_tweets_path, method: :get, local: true do |f|  %>
   
-  <div class="field">
-    <%= f.label :prefecture_id, "提供場所（都道府県)" %>
-    <%= f.collection_select :prefecture_id, Prefecture.all, :id, :prefecture, {include_blank: "指定なし"}, {id: "prefecture-id"} %>
+  <div class="p-search-form__section">
+    提供場所（都道府県)
+    <%= f.collection_select :prefecture_id, Prefecture.all, :id, :prefecture, {include_blank: "指定なし"}, {class: "p-search-form__place-select", id: "prefecture-id"} %>
   </div>
 
-  <div class="field">
-    <%= f.label :city_id, "（市区町村)" %> 
-    <%= f.collection_select :city_id, City.all, :id, :city, {include_blank: "指定なし"}, {id: "city-id"}%>
+  <div class="p-search-form__section">
+    提供場所（市区町村)
+    <%= f.collection_select :city_id, City.all, :id, :city, {include_blank: "指定なし"}, {class: "p-search-form__place-select", id: "city-id"}%>
   </div>
 
-  <div class="tag-field", id='tag-field'>
-    <%= f.label :name, "タグ" %>
-    <%= f.text_field :name, {class: "input-tag", id: "search-tag-name"} %>
+  <div class="p-search-form__section", id='tag-field'>
+    タグ
+    <%= f.text_field :name, {class: "p-search-form__tag-input", id: "search-tag-name"} %>
   </div>
 
-  <div id="search-result">
+  <div class="p-search-form__search-result" id="search-result">
   </div>
-  
-  <%= f.submit '検索' %>
+    
+  <div class="p-tweet-form__section">
+    <%= f.submit '検索',class: "p-search-form__search-btn" %>
+  </div>
+
+
+
 <% end %>
+</div>

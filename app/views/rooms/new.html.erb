@@ -1,17 +1,28 @@
-room new
+<%= render partial: "/shared/header" %>
 
-<div>
-  <div>No<%= @tweet.id %> </div>
-  <div>ルーム名：<%= @tweet.title %></div>
-  <div>送信先：<%= @tweet.user.username %> さん</div>
+
+<table class="p-new-message__table">
+  <tr>
+    <th>投稿No</th>
+    <td><%= @tweet.id %></td> 
+  </tr>
+  <tr>
+    <th>ルーム名</th>
+    <td><%= @tweet.title %></td>
+  </tr>
+  <tr>
+    <th>送信先</th>
+    <td><%= @tweet.user.username %> さん</td>
+  </tr>
+</table>
+
+<div class="p-new-message__form">
+  <%= form_with model: @message_form, url: tweet_rooms_path(@tweet.id), local: true do |f| %>
+    <input name="room_message[room_name]"  type="hidden" value=<%= @tweet.title%>>
+    <input name="room_message[tweet_id]"  type="hidden" value=<%= @tweet.id%>>
+    <input name="room_message[tweet_user_id]" type="hidden" value=<%= @tweet.user.id %>> 
+    <input name="room_message[current_user_id]" type="hidden" value=<%= current_user.id %>>
+    <%= f.text_area :content, class: "p-new-message__message-input" %>
+    <%= f.submit "送信", class: "p-new-message__send-btn" %>
+  <% end %>
 </div>
-
-
-<%= form_with model: @message_form, url: tweet_rooms_path(@tweet.id), local: true do |f| %>
-  <input name="room_message[room_name]"  type="hidden" value=<%= @tweet.title%>>
-  <input name="room_message[tweet_id]"  type="hidden" value=<%= @tweet.id%>>
-  <input name="room_message[tweet_user_id]" type="hidden" value=<%= @tweet.user.id %>> 
-  <input name="room_message[current_user_id]" type="hidden" value=<%= current_user.id %>>
-  <%= f.text_field :content %>
-  <%= f.submit "送信" %>
-<% end %>

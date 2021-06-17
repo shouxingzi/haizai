@@ -1,9 +1,8 @@
 <%# ルーム一覧 %>
-
-<div>
-  <%= link_to "投稿No#{room[:tweet_id]} #{room[:room_name]} 通信相手#{room[:destination_name]}", tweet_room_messages_path(room[:tweet_id], room[:room_id]) %>
+<div >
+  <%= link_to "投稿No#{room[:tweet_id]} #{room[:room_name]} (通信相手#{room[:destination_name]})", tweet_room_messages_path(room[:tweet_id], room[:room_id]) %>
   <% if room[:checked] == false %>
-    新着メッセージがあります
+    <span>新着メッセージがあります</span>
   <% end %>
 </div>
 

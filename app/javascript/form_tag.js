@@ -16,7 +16,7 @@ $(function () {
       dataType: 'json'
     })
     .done(function (data) { 
-      $searchResult = $('#search-result');
+      $searchResult = $('#tag-search-result');
       $searchResult.html("");
       if (data) {
         $selectElement = $("<select>",{
@@ -24,6 +24,7 @@ $(function () {
             "id" : "tag-list",
         });
         $searchResult.append($selectElement);
+        $('#tag-list').width('98%');
         keyword = data.keyword;
         keyword.forEach((tag) => { 
           $optionElement = $("<option>",{
@@ -42,6 +43,7 @@ $(function () {
     }); 
   }
 });
+
 
 
 

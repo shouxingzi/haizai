@@ -1,14 +1,31 @@
-<%= link_to "新規投稿", new_tweet_path %>
+<div class="c-body-container">
 
-<div>
-  <%= render partial: "/shared/search_form", locals: { search: @search } %>
-</div>
+  <header>
+  <%= render partial: "/shared/header" %>
+  </header>
+  
+  <main>
+    <section class="c-section p-section__top-img">
+      <p>薪の掲示板</p>
+    </section>
 
-<div>
-  <%= @list_title %>
-</div>
+    <section class="c-section p-section__search-form">
+      <%= render partial: "/shared/search_form", locals: { search: @search } %>
+    </section>
 
-<div>
-  <%= render partial: "/shared/tweet", collection: @tweets %>
+    <%= link_to image_tag('new_btn'),new_tweet_path, class: "p-new-btn" %>
+
+    <section class="c-section p-section__tweets-list">
+      <div class="p-search-title"><%= @list_title %></div>
+
+      <%= render partial: "/shared/tweet", collection: @tweets %>
+
+      <%= paginate @tweets %>
+    </section>
+  </main>
+
+  <%# <footer>
+  </footer> %>
+
 </div>
 

@@ -7,14 +7,14 @@ class MessagesController < ApplicationController
     @tweet = Tweet.find(params[:tweet_id])
 
     @messages = @room.messages.includes(:user).order(created_at: "ASC")
-    current_user_messages = @messages.where.not(user_id: current_user.id)
-    if current_user_messages.present?
-      current_user_messages.update(checked: true)
+
+    destination_messages = @messages.where.not(user_id: current_user.id)
+    if destination_messages.present?
+      destination_messages.update(checked: true)
     end
 
     destination = Destination.new
     @destination = destination.check_destination(@room, current_user.id)
-    # render :layout => nil #ヘッダーを無効
 
   end  
 
@@ -25,6 +25,7 @@ class MessagesController < ApplicationController
       redirect_to "/tweets/#{@room.tweet.id}/rooms/#{@room.id}/messages"
     else
       @messages = @room.messages.includes(:user)
+      @tweet = Tweet.find(params[:tweet_id])
       render :index
     end
   end

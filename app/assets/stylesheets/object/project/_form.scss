@@ -1,0 +1,98 @@
+.p-tweet-form__container {
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 30px;
+  padding-right: 30px;
+  background-color: #ffffe0;
+}
+
+.p-tweet-form__error-space ul {
+  padding: 5px;
+  border: 2px red dashed; 
+}
+
+
+.p-tweet-form__title {
+  font-family: "Source Sans Pro", Helvetica, Arial, "æ¸¸ã‚´ã‚·ãƒƒã‚¯ä½“", "YuGothic", "ãƒ¡ã‚¤ãƒªã‚ª", "Meiryo", sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  min-width: 170px;
+  margin-bottom: 10px;
+}
+
+.p-tweet-form__section {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.p-tweet-form__indispensable {
+  background: #ea352d;
+  margin-left: 8px;
+  padding: 3px;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+
+.p-tweet-form__title-input {
+  width: 98%;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  padding: 5px;
+  resize: none;
+}
+
+.p-tweet-form__text-input {
+  width: 98%;
+  height: 200px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  padding: 5px;
+  resize: none;
+}
+
+.p-tweet-form__place-select {
+  width: 20vw;
+  font-size: 16px;
+  padding: 5px;
+
+}
+
+.p-tweet-form__tag-input {
+  width: 98%;
+  height: 50px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  padding: 5px;
+  resize: none;
+}
+
+.p-tweet-form__preview {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.p-tweet-form__send-btn {
+  background: #ea352d;
+  border: 1px solid #ea352d;
+  color: #fff;
+  width: 100%;
+  height: 50px;
+  font-size: 14px;
+  margin-bottom: 4vh;
+}
+
+.p-tweet-form__send-btn:hover {
+  opacity: 0.6;
+}
+
+
+
+
+
