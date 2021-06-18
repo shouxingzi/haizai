@@ -19,7 +19,7 @@
     </div>
   </header>
 
-  <div class="p-chats">
+  <div class="p-chats" id="chats">
 
     <% @messages.each do |message| %>
       <%if message.user.id == current_user.id %>
@@ -57,7 +57,7 @@
         <%= f.text_area :content, class: "p-message-index-form__content-input" %>
         <%= f.submit "送信", class: "p-message-index-form__send-btn", id: "message-index-form-send-btn" %>
     <% end %>
-  </div>
+  </div> 
 
 </div>
 
