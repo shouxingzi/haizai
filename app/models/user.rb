@@ -11,6 +11,7 @@ class User < ApplicationRecord
 
 
   validates :username, presence: true
-  validates :password,length: { minimum: 6 }, format: { with: /(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]/ }
+  validates :username, length: { maximum: 15 }
+  validates :password, length: { minimum: 6 }, format: { with: /(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]/ }
 
 end
