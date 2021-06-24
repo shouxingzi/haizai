@@ -1,6 +1,6 @@
 <div class="p-tweet-contents">
   <div class="p-tweet-img-contents">
-    <%= link_to image_tag(tweet.image),tweet_path(tweet.id), class: "tweet-img"  %>
+    <%= link_to image_tag(tweet.image.variant(resize: '300x500')),tweet_path(tweet.id), class: "tweet-img"  %>
   </div>
   <div class="p-tweet-article-contents">
     <div class="p-tweet-article-contents__item">

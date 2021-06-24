@@ -9,7 +9,7 @@
     <%= @tweet.text %>
   </div>
   <div class="p-tweet-show__image-section">
-    <%= image_tag @tweet.image %>
+    <%= image_tag @tweet.image.variant(resize: '500x700') %>
   </div>
 
   <div class="p-tweet-show__btn-section">

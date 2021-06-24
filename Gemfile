@@ -61,3 +61,5 @@ gem 'rails-i18n'
 gem 'kaminari'
 gem 'aws-sdk-s3', require: false
 gem 'faker'
+gem 'mini_magick'
+gem 'image_processing', '~> 1.2'

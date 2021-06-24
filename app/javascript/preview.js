@@ -4,7 +4,11 @@ $(function () {
     const createImageHTML = (blob) => {
       $imageElement = $("<div>");
       $blobImage = $("<img>");
-      $blobImage.attr("src", blob);
+      $blobImage.attr({
+        src: blob,
+        width: 700,
+        height: 500
+      });
       $imageElement.append($blobImage);
       $ImageList.append($imageElement);
     };
