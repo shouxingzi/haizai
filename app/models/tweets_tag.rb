@@ -15,6 +15,7 @@ class TweetsTag
   validates :title,length: { maximum: 100 }
   validate :name_valid
 
+
    # tweetがすでに保存されているものか、新規のものかで、PUTとPATCHを分ける
    delegate :persisted?, to: :tweet
 
@@ -68,7 +69,7 @@ class TweetsTag
   def name_valid
     tags = name.split(",")
     if tags.length > 10
-      errors.add(:name, "タグの登録は10個までです")
+      errors.add(:name, "の登録は10個までです")
     end
   end
   

@@ -20,5 +20,6 @@ ja:
         image: 画像
         prefecture_id: 都道府県 
         city_id: 市区町村
+        name: タグ
 
 
