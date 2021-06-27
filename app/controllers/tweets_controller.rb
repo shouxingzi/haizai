@@ -3,7 +3,7 @@ class TweetsController < ApplicationController
   PER = 25
 
   def index
-    @tweets = Tweet.all.order(created_at: "DESC").page(params[:page]).per(PER)
+    @tweets = Tweet.includes(:user, :prefecture, :city).order(created_at: "DESC").page(params[:page]).per(PER)
     @search = TweetSearch.new
     @list_title = "最新の投稿一覧"
   end
