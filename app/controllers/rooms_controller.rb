@@ -3,7 +3,8 @@ class RoomsController < ApplicationController
 
 
   def new
-    room_ids = Room.where(tweet_id: params[:tweet_id]).pluck(:id)
+    room_ids = Room.where(tweet_id: params[:tweet_id]).pluck(:id) 
+    # 既にチャットルームが制作済みの記事の場合はそのチャットのルームへ遷移。そうでない場合は新規メッセージを投稿するページへ遷移
     if room_ids.present?
       room_ids.each do |id|
         room = Room.find_by(id: id)

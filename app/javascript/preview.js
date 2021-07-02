@@ -6,8 +6,8 @@ $(function () {
       $blobImage = $("<img>");
       $blobImage.attr({
         src: blob,
-        width: 700,
-        height: 500
+        width: 300,
+        height: 200
       });
       $imageElement.append($blobImage);
       $ImageList.append($imageElement);

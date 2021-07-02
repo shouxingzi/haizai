@@ -1,5 +1,5 @@
 .p-tweet-form__container {
-  width: 800px;
+  width: 40vw;
   margin-left: auto;
   margin-right: auto;
   padding-left: 30px;
@@ -15,7 +15,7 @@
 
 .p-tweet-form__title {
   font-family: "Source Sans Pro", Helvetica, Arial, "æ¸¸ã‚´ã‚·ãƒƒã‚¯ä½“", "YuGothic", "ãƒ¡ã‚¤ãƒªã‚ª", "Meiryo", sans-serif;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: bold;
   min-width: 170px;
   margin-bottom: 10px;
@@ -60,7 +60,10 @@
   width: 20vw;
   font-size: 16px;
   padding: 5px;
+}
 
+.p-tweet-form__tag-description {
+  font-size: 15px;
 }
 
 .p-tweet-form__tag-input {
@@ -79,11 +82,15 @@
   margin-bottom: 10px;
 }
 
+.p-tweet-form__btn-center {
+  text-align: center;
+}
+
 .p-tweet-form__send-btn {
   background: #ea352d;
   border: 1px solid #ea352d;
   color: #fff;
-  width: 100%;
+  width: 70%;
   height: 50px;
   font-size: 14px;
   margin-bottom: 4vh;

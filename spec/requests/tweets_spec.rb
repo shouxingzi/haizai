@@ -19,6 +19,7 @@ describe "TweetsController", type: :request do
   describe "GET /tweets" do
     it 'indexアクションにリクエストすると正常にレスポンスが返ってくる' do
       get_root_path
+      binding.pry
       expect(response.status).to eq 200
     end
     it 'indexアクションにリクエストするとレスポンスに投稿済みのツイートのタイトルが存在する' do

@@ -50,7 +50,7 @@
         <div class="p-tweet-form__title">
           ハッシュタグ
         </div>
-        <p>タグとタグの間は半角カンマ「,」で区切ってください。１０個まで登録できます。</p>
+        <p class="p-tweet-form__tag-description">タグとタグの間は半角カンマ「,」で区切ってください。１０個まで登録できます。</p>
         <%= f.text_area :name, class: "p-tweet-form__tag-input", id: "form-tag-name", autocomplete: "off" %>
         <div id="tag-search-result"></div>
       </div>
@@ -71,7 +71,7 @@
 
 
       <%# 下部ボタン %>
-      <div class="p-tweet-form__section">
+      <div class="p-tweet-form__section p-tweet-form__btn-center">
         <%= f.submit "送信" ,class: "p-tweet-form__send-btn" %>
       </div>
       <%# /下部ボタン %>

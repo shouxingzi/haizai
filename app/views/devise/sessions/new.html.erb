@@ -5,6 +5,11 @@
   <h1>ユーザーログイン</h1>
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+    <div class="c-devise-form__error-space">
+      <%= render "devise/shared/error_messages", resource: resource %>
+    </div>
+
     <div class="c-devise-form__section">
       <div class="c-devise-form__title">
         <%= f.label :email, "メールアドレス" %><br />
@@ -27,3 +32,4 @@
   <%# <%= render "devise/shared/links" %> 
 
 </div>
+
