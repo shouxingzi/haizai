@@ -1,7 +1,7 @@
 .p-tweet-contents {
   background-color: white;
   display: flex;
-  margin-bottom: 50px;
+  margin-bottom: 5vh;
 }
 
 .p-tweet-contents:last-of-type {
@@ -14,15 +14,20 @@
   height: 100%;
 }
 
+// .p-tweet-img-contents img {
+//   max-width: 100%;
+//   height: auto;
+// }
+
 .p-tweet-article-contents {
   width: 60%;
   height: 100%;
 }
 
 .p-tweet-article-contents__item {
-  margin: 5px 0px;
+  margin: 1vh 0px;
 }
 
 .p-tweet-article-contents__title {
-  font-size: 25px;
+  font-size: 2vw;
 }

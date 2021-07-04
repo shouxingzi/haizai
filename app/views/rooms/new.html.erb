@@ -22,7 +22,7 @@
     <input name="room_message[tweet_id]"  type="hidden" value=<%= @tweet.id%>>
     <input name="room_message[tweet_user_id]" type="hidden" value=<%= @tweet.user.id %>> 
     <input name="room_message[current_user_id]" type="hidden" value=<%= current_user.id %>>
-    <%= f.text_area :content, class: "p-new-message__message-input" %>
+    <%= f.text_area :content, placeholder: "メッセージを入力してください", class: "p-new-message__message-input" %>
     <%= f.submit "送信", class: "p-new-message__send-btn" %>
   <% end %>
 </div>

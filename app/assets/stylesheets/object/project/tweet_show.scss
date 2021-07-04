@@ -2,15 +2,16 @@
   border: 1px solid black;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 50px;
-  margin-bottom: 50px;
-  padding-left: 10px;
-  padding-right: 10px;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+  padding-left: 3vw;
+  padding-right: 3vw;
   width: 60vw;
 }
 
 .p-tweet-show__title-section {
-  font-size: 40px;
+  margin: 5vh 0;
+  font-size: 2vw;
   text-align: center;
 }
 
@@ -24,13 +25,17 @@
 }
 
 .p-tweet-show__btn-section {
-  text-align: center;
+  width: 60vw;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
 }
 
 .p-tweet-show__btn {
-  padding: 15px 35%;
-  margin-top: 10px;
-  margin-bottom: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  width:30vw;
+  padding: 2vh 0;
+  border-radius: 10px 10px 10px 10px;
   text-decoration: none;
   text-align: center;
 }
@@ -42,6 +47,7 @@
 .p-tweet-show__edit-btn {
   background: #ea352d;
   border: 1px solid #ea352d;
+  margin-bottom: 5vh;
 }
 
 .p-tweet-show__delete-btn {
@@ -57,7 +63,7 @@
 .p-show__table {
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 50px;
+  margin-bottom: 5vh;
   width: 40vw;
 }
 
@@ -71,17 +77,17 @@
 }
 
 .p-show__table tr {
-  height: 40px;
+  height: 4vh;
 }
 
 .p-show__table  {
   th {
     width: 30%;
-    padding: 5px 10px;
+    padding: 2vh 1vw;
   }
   td {
     width: 70%;
-    padding: 5px 10px;
+    padding: 2vh 1vw;
   }
 } 
 

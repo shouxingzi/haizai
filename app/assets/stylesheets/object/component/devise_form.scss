@@ -1,47 +1,54 @@
 .c-devise-form__container {
-  width: 30vw;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 50px;
-  margin-bottom: 30px;
-  padding-left: 30px;
-  padding-right: 30px;
+  width: 22vw;
+  margin: 5vh auto;
+  padding: 0 10vw;
   background-color: #ffffe0;
+  font-size: 1vw;
 }
 
 .c-devise-form__container h1{
   text-align: center;
-
   font-family: "Source Sans Pro", Helvetica, Arial, "æ¸¸ã‚´ã‚·ãƒƒã‚¯ä½“", "YuGothic", "ãƒ¡ã‚¤ãƒªã‚ª", "Meiryo", sans-serif;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 1.5vw;
 }
 
 
 .c-devise-form__error-space {
-  padding: 5px;
+  padding: 1vh 1vw;
 }
 
 .c-devise-form__section {
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding: 2vh 0;
 }
 
 .c-devise-form__title {
   font-family: "Source Sans Pro", Helvetica, Arial, "æ¸¸ã‚´ã‚·ãƒƒã‚¯ä½“", "YuGothic", "ãƒ¡ã‚¤ãƒªã‚ª", "Meiryo", sans-serif;
-  font-size: 18px;
+  font-size: 1.1vw;
   font-weight: bold;
   min-width: 170px;
-  margin-bottom: 10px;
+  margin-bottom: 1vh;
+  text-align: left;
 }
 
-.c-devise-form__container input {
-  width: 98%;
+.c-devise-form__input {
+  width: 100%;
   border-radius: 4px;
   border: 1px solid #ccc;
-  font-size: 16px;
-  padding: 5px;
+  font-size: 1.1vw;
+  padding: 1vh 1vw;
   resize: none;
+}
+
+.c-devise-form__btn-section {
+  padding: 2vh 0;
+  margin-bottom: 3vh;
+  text-align: center;
+}
+
+.c-devise-form__btn {
+  width: 60%;
+  height: 5vh;
 }
 
 .c-devise-form__btn:hover {

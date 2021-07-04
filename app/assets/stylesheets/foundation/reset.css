@@ -136,3 +136,13 @@ a:hover {
   opacity: 0.6;
 }
 
+html {
+  font-size: 1.2vw;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+

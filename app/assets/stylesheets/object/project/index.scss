@@ -10,7 +10,7 @@
 }
 
 .p-section__top-img p{ 
-  font-size: 50px;
+  font-size: 4vw;
   color: white;
 }
 
@@ -23,19 +23,16 @@
 }
 
 .p-search-title {
-  font-size: 4vh;
+  font-size: 2vw;
   text-align: center;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 30px;
-  margin-bottom: 50px;
+  margin: 5vh 0;
 }
-
 
 
 .p-new-btn {
   position: fixed;
-  bottom: 10px; 
-  right: 10px;
-  padding: 6px px;
+  bottom: 5vh; 
+  right: 2vw;
 }

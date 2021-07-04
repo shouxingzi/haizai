@@ -14,17 +14,17 @@
       <div class="c-devise-form__title">
         <%= f.label :email, "メールアドレス" %><br />
       </div>
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "c-devise-form__input" %>
     </div>
 
     <div class="c-devise-form__section">
       <div class="c-devise-form__title">
         <%= f.label :password, "パスワード" %><br />
       </div>
-      <%= f.password_field :password, autocomplete: "current-password" %>
+      <%= f.password_field :password, autocomplete: "current-password", class: "c-devise-form__input" %>
     </div>
 
-    <div class="c-devise-form__section">
+    <div class="c-devise-form__btn-section">
       <%= f.submit "ログイン", class: "c-devise-form__btn" %>
     </div>
   <% end %>

@@ -2,6 +2,7 @@ class Destination
   
   include ActiveModel::Model
 
+  # 通信相手の情報を抽出
   def check_destination(room, current_user_id)
     user_ids =  room.room_users.includes(:user).pluck(:user_id)
     users = User.where(id: user_ids)

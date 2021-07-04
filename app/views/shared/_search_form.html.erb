@@ -2,18 +2,18 @@
 <%= form_with model: search, url: search_tweets_path, method: :get, local: true do |f|  %>
   
   <div class="p-search-form__section">
-    提供場所（都道府県)
-    <%= f.collection_select :prefecture_id, Prefecture.all, :id, :prefecture, {include_blank: "指定なし"}, {class: "p-search-form__place-select", id: "prefecture-id"} %>
+    <p>提供場所（都道府県)</p>
+    <%= f.collection_select :prefecture_id, Prefecture.all, :id, :prefecture, {include_blank: "指定なし"}, {class: "p-search-form__input", id: "prefecture-id"} %>
   </div>
 
   <div class="p-search-form__section">
-    提供場所（市区町村)
-    <%= f.collection_select :city_id, City.all, :id, :city, {include_blank: "指定なし"}, {class: "p-search-form__place-select", id: "city-id"}%>
+    <p>提供場所（市区町村)</p>
+    <%= f.collection_select :city_id, City.all, :id, :city, {include_blank: "指定なし"}, {class: "p-search-form__input", id: "city-id"}%>
   </div>
 
   <div class="p-search-form__section", id='tag-field'>
-    タグ
-    <%= f.text_field :name, class: "p-search-form__tag-input", id: "search-tag-name", autocomplete: "off" %>
+    <p>タグ</p>
+    <%= f.text_field :name, class: "p-search-form__input", id: "search-tag-name", autocomplete: "off" %>
   </div>
 
   <div class="p-search-form__search-result" id="search-result">
