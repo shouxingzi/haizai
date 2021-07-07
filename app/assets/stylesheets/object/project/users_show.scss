@@ -1,8 +1,5 @@
-.p-user-show-body-container {
-  background-color: #e6e6fa;
-}
-
 .p-user-room-list {
+  border: 1px solid black;
   width:70vw;
   margin-top: 10vh;
   margin-bottom: 7vh;
@@ -14,7 +11,10 @@
 
 .p-user-room-list h1 {
   font-size: 2vw;
-  background-color: #e6e6fa;
+}
+
+.p-user-room__no-message {
+  text-align: center;
 }
 
 
@@ -33,6 +33,10 @@
 }
 
 .p-user-room-tweet-list-caution {
+  text-align: center;
+}
+
+.p-user-room-tweet-list__no-message {
   text-align: center;
 }
 
