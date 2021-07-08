@@ -1,6 +1,6 @@
 # アプリ名
 薪の掲示板  
-https://haizai.herokuapp.com/
+https://haizai.herokuapp.com/  
 
 # 概要
 廃材を処分したい人と廃材を薪として利用したい人を繋げる掲示板アプリです。  
