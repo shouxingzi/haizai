@@ -24,13 +24,9 @@ https://haizai.herokuapp.com/
 パスワード:test12  
 
 
-# ペルソナ
-* 30代〜60代の薪ストーブユーザー  
-* 自宅に庭がある人  
-* 持ち山がある人
 
 # 機能一覧
-* ユーザー登録、ログイン機能(devise)
+* ユーザー登録、ログイン機能(Devise)
 * 投稿機能  
 画像投稿(ActiveStorage MiniMagick ImageProcessing
 )  
@@ -72,6 +68,7 @@ https://haizai.herokuapp.com/
 2. トップ画面から目的の記事の画像またはタイトルをクリックし記事詳細画面へ遷移
 3. 「投稿者と連絡をとる」をクリックしメッセージ入力画面へ遷移
 4. メッセージを入力し送信ボタンをクリック。新しいメッセージルームが作成される。
+[![Image from Gyazo](https://i.gyazo.com/25d9b5b95ad885e30cfe8177564ec15e.gif)](https://gyazo.com/25d9b5b95ad885e30cfe8177564ec15e)
 [![Image from Gyazo](https://i.gyazo.com/ad9f4b1401d350e934ad89e58b5cc3bc.gif)](https://gyazo.com/ad9f4b1401d350e934ad89e58b5cc3bc)
 
 ### メッセージを返信する
@@ -123,8 +120,8 @@ https://haizai.herokuapp.com/
 ### ビュー
 レスポンシブデザインに対応中です。
 
-### 画像投稿機能
-現状では1つの画像しかアップロードできないため複数画像をアップロード出来るように開発中です。
+### テストコード
+単体
 
 
 
