@@ -78,6 +78,8 @@ https://haizai.herokuapp.com/
 
 [![Image from Gyazo](https://i.gyazo.com/9cbe902bfccd6c4e956a4eb9e42e529b.gif)](https://gyazo.com/9cbe902bfccd6c4e956a4eb9e42e529b)
 
+[![Image from Gyazo](https://i.gyazo.com/9cbe902bfccd6c4e956a4eb9e42e529b.gif)](https://gyazo.com/9cbe902bfccd6c4e956a4eb9e42e529b)
+
 
 ### 記事検索
 1. トップ画面上部にある記事検索フォームに検索したい項目を入力し「記事を検索」ボタンをクリック
