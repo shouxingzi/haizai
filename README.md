@@ -4,7 +4,7 @@ https://haizai.herokuapp.com/
 
 # 概要
 廃材を処分したい人と廃材を薪として利用したい人を繋げる掲示板アプリです。  
-投稿者との連絡手段としてチャット機能が付いてます。
+投稿者との連絡手段としてチャット機能が付いてます。  
 [![Image from Gyazo](https://i.gyazo.com/c393bbea82c4be92e04a3fa30a978652.gif)](https://gyazo.com/c393bbea82c4be92e04a3fa30a978652)
   
 # Basic認証
@@ -71,7 +71,7 @@ https://haizai.herokuapp.com/
 ### メッセージを返信する
 1. ユーザーログイン後、マイメニューをクリック
 2. 「参加中のメッセージルーム」 から目的のメッセージルームをクリックしチャット画面へ遷移
-3. 画面下部のメッセージ入力フォームにメッセージを入力し「送信」ボタンをクリック
+3. 画面下部のメッセージ入力フォームにメッセージを入力し「送信」ボタンをクリック  
 [![Image from Gyazo](https://i.gyazo.com/9cbe902bfccd6c4e956a4eb9e42e529b.gif)](https://gyazo.com/9cbe902bfccd6c4e956a4eb9e42e529b)
 
 
@@ -118,7 +118,7 @@ https://haizai.herokuapp.com/
 レスポンシブデザインに対応中です。
 
 ### テストコード
-単体
+単体テストは実行済みですが結合テストも行えるよう実装中です。
 
 
 
